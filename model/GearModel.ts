@@ -20,6 +20,7 @@ const gearSchema = new mongoose.Schema({
   },
   status: {
     type: Boolean,
+    default : false
   },
   image: {
     type: String,

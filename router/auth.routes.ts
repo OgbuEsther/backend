@@ -5,7 +5,7 @@ const authRouter = Router();
 
 authRouter.route("/register").post(regsiterUser)
 authRouter.route("/login").post(loginUser)
-authRouter.route("/getall").get(getUser)
+authRouter.route("/get").get(getUser)
 
 
 export default authRouter
