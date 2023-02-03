@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-interface gearProps {
+export interface gearProps {
   name: string;
   price: string;
   status: boolean;
@@ -30,6 +30,6 @@ const gearSchema = new mongoose.Schema({
   },
 });
 
-const gearModel = mongoose.model<Igear>("GearCollections", gearSchema);
+const gearModel = mongoose.model<Igear>("BootCampGears", gearSchema);
 
 export default gearModel;

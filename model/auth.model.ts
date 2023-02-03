@@ -26,11 +26,13 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: [true, "please enter a password"],
-    minlength: 6,
+    minlength: 4,
+    default : "admin"
   },
   isAdmin: {
     type: Boolean,
   },
+
 });
 
 const authModel = mongoose.model<user>("bootCampGear", userSchema);
