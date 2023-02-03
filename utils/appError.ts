@@ -10,7 +10,6 @@ export enum HttpCodes {
     SEE_OTHER = 303,
     NOT_MODIFIED = 304,
     ACCEPTED_REST = 305,
-    
     BAD_REQUEST = 400,
     UNAUTHORIZED = 401,
     FORBIDDEN = 403,
