@@ -1,7 +1,7 @@
 import { Request , Response , NextFunction } from "express";
 import cloudinary from "../config/cloudinary";
 import gearModel, { gearProps } from "../model/GearModel";
-import { AppError, HttpCodes } from "../utils/AppError";
+import { AppError, HttpCodes } from "../utils/appError";
 import { asyncHandler } from "../utils/asyncHandler";
 
 export const getAll = asyncHandler(
