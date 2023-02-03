@@ -9,8 +9,7 @@ import bcrypt from "bcrypt"
 export const regsiterUser = asyncHandler(
     async(req:Request<{} , {} , userDetails> , res:Response , next:NextFunction):Promise<Response> => {
         const { email, password  , name, isAdmin  } = req.body;
-        // const salt = await bcrypt.genSalt(10)
-        // const hashedPassword = await bcrypt.hash(password , salt)
+       
         const defaultPassword = "admin"
         
         
@@ -30,17 +29,7 @@ export const regsiterUser = asyncHandler(
        }
       
 
-           
-        // if(!user){
-        //     next(
-        //         new AppError({
-        //             message : "failed to register user",
-        //             httpcode : HttpCodes.BAD_REQUEST,
-        //             name : AppError.name,
-        //             isOperational : true
-        //         })
-        //     )
-        // }
+       
 
         
       

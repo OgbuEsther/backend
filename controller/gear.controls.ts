@@ -1,4 +1,5 @@
 import { Request , Response , NextFunction } from "express";
+import cloudinary from "../config/cloudinary";
 import gearModel, { gearProps } from "../model/GearModel";
 import { AppError, HttpCodes } from "../utils/AppError";
 import { asyncHandler } from "../utils/asyncHandler";
@@ -26,8 +27,9 @@ export const getAll = asyncHandler(
 export const postGear = asyncHandler(
     async(req:Request<{} ,{} , gearProps> , res:Response , next :NextFunction):Promise<Response> =>{
         const {name , price , status , image , views} = req.body
+        const cloudImg = await cloudinary.uploader.upload(req?.file!.path)
         const user = await gearModel.create({
-            name , price , status , image , views
+            name , price , status , image:cloudImg.secure_url , views
         })
 
         if(!user){
