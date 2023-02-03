@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 
-interface userDetails {
+export interface userDetails {
   name: string;
   email: string;
   isAdmin: boolean;
   password: string;
+  
 }
 
 interface user extends userDetails, mongoose.Document {}
