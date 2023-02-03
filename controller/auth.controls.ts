@@ -36,7 +36,23 @@ export const regsiterUser = asyncHandler(
 export const loginUser = asyncHandler(
     async(req:Request , res:Response , next:NextFunction):Promise<Response> =>{
         const {email , password} = req.body
+if(!email){
+    next(
+        new AppError({
+            message : "email is required",
+            name : AppError.name,
+            httpcode : HttpCodes.BAD_REQUEST,
+            isOperational : true
+        })
+    )
 
-        const user = await authModel.findOne({email , password})
+        
+    
+
+
     }
+    const user = await authModel.findOne({email , password})
+
+}
+
 )
