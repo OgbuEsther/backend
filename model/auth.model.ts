@@ -32,6 +32,6 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-const authModel = mongoose.model<user>("GearAuth", userSchema);
+const authModel = mongoose.model<user>("bootCampGear", userSchema);
 
 export default authModel;
