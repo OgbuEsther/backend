@@ -9,7 +9,8 @@ import bcrypt from "bcrypt"
 export const regsiterUser = asyncHandler(
     async(req:Request<{} , {} , userDetails> , res:Response , next:NextFunction):Promise<Response> => {
         const { email, password  , name, isAdmin  } = req.body;
-       
+        // const salt = await bcrypt.genSalt(10)
+        // const hashedPassword = await bcrypt.hash(password , salt)
         const defaultPassword = "admin"
         
         
@@ -29,7 +30,17 @@ export const regsiterUser = asyncHandler(
        }
       
 
-       
+           
+        // if(!user){
+        //     next(
+        //         new AppError({
+        //             message : "failed to register user",
+        //             httpcode : HttpCodes.BAD_REQUEST,
+        //             name : AppError.name,
+        //             isOperational : true
+        //         })
+        //     )
+        // }
 
         
       
@@ -61,7 +72,7 @@ if(!email){
     }
     const user = await authModel.findOne({email , password})
     
-   
+    // const checkPassword = await bcrypt.compare(password, user!.password)
 
     if (!user) {
         next(
@@ -74,7 +85,16 @@ if(!email){
         )
         }
 
-      
+        // if (!checkPassword) {
+        //     next(
+        //       new AppError({
+        //         message : "invalid password and email", 
+        //         name : AppError.name,
+        //         httpcode : HttpCodes.NOT_FOUND
+                
+        //       })
+        //     )
+        //     }
         return res.status(HttpCodes.OK).json({
             message : "logged in successfully",
             data : user

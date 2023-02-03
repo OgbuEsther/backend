@@ -27,7 +27,7 @@ export const getAll = asyncHandler(
 export const postGear = asyncHandler(
     async(req:Request<{} ,{} , gearProps> , res:Response , next :NextFunction):Promise<Response> =>{
         const {name , price , status , image , views} = req.body
-        const cloudImg = await cloudinary.uploader.upload(req.file!.path)
+        const cloudImg = await cloudinary.uploader.upload(req?.file!.path)
         const user = await gearModel.create({
             name , price , status , image:cloudImg.secure_url , views
         })

@@ -31,6 +31,6 @@ const gearSchema = new mongoose.Schema({
   },
 });
 
-const gearModel = mongoose.model<Igear>("BootCampGears", gearSchema);
+const gearModel = mongoose.model<Igear>("gearCollections", gearSchema);
 
 export default gearModel;

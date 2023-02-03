@@ -6,7 +6,7 @@ const app:Application = express()
 appConfig(app)
 dbConfig()
 
-const port : number | string = process.env.PORT || 7000
+const port : number | string = process.env.PORT || 7070
 
 app.listen(port , ()=>{
     console.log(`Server is running on port ${port}`)

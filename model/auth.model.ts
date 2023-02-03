@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "please enter a valid email address"],
     trim: true,
-    // unique: true,
+    unique: true,
     lowercase: true,
   },
   password: {
@@ -35,6 +35,6 @@ const userSchema = new mongoose.Schema({
 
 });
 
-const authModel = mongoose.model<user>("bootCampGear", userSchema);
+const authModel = mongoose.model<user>("AuthCollections", userSchema);
 
 export default authModel;
