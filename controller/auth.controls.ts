@@ -72,7 +72,7 @@ if(!email){
     }
     const user = await authModel.findOne({email , password})
     
-    // const checkPassword = await bcrypt.compare(password, user!.password)
+   
 
     if (!user) {
         next(
@@ -85,16 +85,7 @@ if(!email){
         )
         }
 
-        // if (!checkPassword) {
-        //     next(
-        //       new AppError({
-        //         message : "invalid password and email", 
-        //         name : AppError.name,
-        //         httpcode : HttpCodes.NOT_FOUND
-                
-        //       })
-        //     )
-        //     }
+      
         return res.status(HttpCodes.OK).json({
             message : "logged in successfully",
             data : user

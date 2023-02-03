@@ -68,3 +68,26 @@ export const getOne = asyncHandler(
         })
     }
 )
+
+
+//delete
+
+export const removeOne = asyncHandler(
+    async(req:Request , res:Response, next:NextFunction):Promise<Response> =>{
+        const user = await gearModel.findByIdAndRemove(req.params.id)
+        if(!user){
+            next (
+                new AppError({
+                    message : "unable to get all users",
+                    name : AppError.name,
+                    httpcode : HttpCodes.BAD_REQUEST
+                })
+            )
+        }
+
+        return res.status(200).json({
+            message : "removed one successfully",
+            data : user
+        })
+    }
+)
